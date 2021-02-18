@@ -11,27 +11,45 @@
     <title>QuizApp</title>
 </head>
 
-<body onload="nextQuestion()">
+<body onload="nextQuestion()" class="bg-light">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/quiz.png" alt="quiz-logo" width="30" height="auto" class="d-inline-block align-top">
+                IT Quiz
+            </a>
+        </div>
+    </nav>
     <div class="container">
-        <h1>The Amazing IT Quiz</h1>
+        <h1 class="mt-4">The Amazing IT Quiz</h1>
+        <div class="progress mt-3 mb-3">
+            <div class="progress-bar progress-bar-striped bg-info" id="progress-bar" role="progressbar" style="width: 25%;">25%</div>
+        </div>
         <div class="alert alert-success d-none" id="correct-answer" role="alert">
             Korrekte Antwort!
         </div>
         <div class="alert alert-danger d-none" id="wrong-answer" role="alert">
             Falsche Antwort!
         </div>
-        <div class="card">
+        <div class="card mt-3">
             <div class="card-body" id="question">
                 In diesem Abschnitt wird eine Frage gestellt
             </div>
         </div>
         <div class="mt-3">
-            <button onclick="answer(1)" id="answer1" class="btn btn-danger">Antwort A</button>
-            <button onclick="answer(2)" id="answer2" class="btn btn-danger">Antwort B</button>
-            <button onclick="answer(3)" id="answer3" class="btn btn-danger">Antwort C</button>
-            <button onclick="answer(4)" id="answer4" class="btn btn-danger">Antwort D</button>
+            <button onclick="answer(1)" id="answer1" class="btn btn-outline-info">Antwort A</button>
+            <button onclick="answer(2)" id="answer2" class="btn btn-outline-info">Antwort B</button>
+            <button onclick="answer(3)" id="answer3" class="btn btn-outline-info">Antwort C</button>
+            <button onclick="answer(4)" id="answer4" class="btn btn-outline-info">Antwort D</button>
         </div>
+        <button onclick="nextQuestion()" type="button" class="btn btn-info mt-3 d-none" id="next-btn">Nächste
+            Frage</button>
     </div>
+    <footer class="bg-dark text-center text-lg-start footer">
+        <div class="text-center p-3 footer-text">
+            © 2021 Quiz GmbH
+        </div>
+    </footer>
 </body>
 
 
