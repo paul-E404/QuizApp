@@ -7,22 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>QuizApp</title>
 </head>
 
-<body>
+<body onload="nextQuestion()">
     <div class="container">
         <h1>The Amazing IT Quiz</h1>
+        <div class="alert alert-success d-none" id="correct-answer" role="alert">
+            Korrekte Antwort!
+        </div>
+        <div class="alert alert-danger d-none" id="wrong-answer" role="alert">
+            Falsche Antwort!
+        </div>
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" id="question">
                 In diesem Abschnitt wird eine Frage gestellt
             </div>
         </div>
         <div class="mt-3">
-            <button class="btn btn-danger">Antwort A</button>
-            <button class="btn btn-danger">Antwort B</button>
-            <button class="btn btn-danger">Antwort C</button>
-            <button class="btn btn-danger">Antwort D</button>
+            <button onclick="answer(1)" id="answer1" class="btn btn-danger">Antwort A</button>
+            <button onclick="answer(2)" id="answer2" class="btn btn-danger">Antwort B</button>
+            <button onclick="answer(3)" id="answer3" class="btn btn-danger">Antwort C</button>
+            <button onclick="answer(4)" id="answer4" class="btn btn-danger">Antwort D</button>
         </div>
     </div>
 </body>
