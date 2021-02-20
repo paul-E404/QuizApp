@@ -8,3 +8,45 @@
 .footer-text {
     color: white;
 }
+
+h1, .progress, .card, .alert {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.quiz-answer-row {
+   width: 80%;
+}
+
+.quiz-answer-row button {
+    width: 100%;
+    height: 100px;
+    margin: 10px;
+}
+
+.finished-container {
+    margin-left: 30%;
+}
+
+.img-winner-box {
+    height: 385px;
+    width: 385px;
+    position: relative;
+}
+
+.img-winner {
+    height: 0px;
+    width: auto;
+    border-radius: 30px;
+}
+
+.enlarged {
+    height: 385px;
+    transition: height 900ms ease-in-out;
+}
+
+.restart-btn {
+    position: absolute;
+    bottom: 0px;
+    right: 40px;
+}

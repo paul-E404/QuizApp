@@ -1,55 +1,36 @@
-let question_1 = 'Wer hat HTML erfunden?';
-let question_1_answer_1 = 'Michael Jackson';
-let question_1_answer_2 = 'Tim Berners-Lee';
-let question_1_answer_3 = 'Lady Gaga';
-let question_1_answer_4 = 'Angela Merkel';
-
-let question_2 = 'Wofür steht das HTML Tag &lt;a&gt;?';
-let question_2_answer_1 = 'Eine Tabelle';
-let question_2_answer_2 = 'Einen Link';
-let question_2_answer_3 = 'Einen Container';
-let question_2_answer_4 = 'Fettgedruckten Text';
-
 let right_answer;
 let question_number = 0;
+
 
 function hideElements() {
     document.getElementById('correct-answer').classList.add('d-none');
     document.getElementById('next-btn').classList.add('d-none');
 }
 
+
 function nextQuestion() {
 
     hideElements();
+    showProgress();
+    question_number++;
+    loadQuestion();
 
-    let progress = question_number * 10 + '%';
+}
+
+function showProgress() {
+    let progress = Math.round((question_number / questions.length) * 100) + '%';
     document.getElementById('progress-bar').innerHTML = progress;
     document.getElementById('progress-bar').style.width = progress;
-    question_number++;
-
-    if (document.getElementById('question').innerHTML == question_1) {
-        loadQuestion2();
-    } else {
-        loadQuestion1();
-    }
-    
-    right_answer = 2;
 }
 
-function loadQuestion1() {
-    document.getElementById('question').innerHTML = question_1;
-    document.getElementById('answer1').innerHTML = question_1_answer_1;
-    document.getElementById('answer2').innerHTML = question_1_answer_2;
-    document.getElementById('answer3').innerHTML = question_1_answer_3;
-    document.getElementById('answer4').innerHTML = question_1_answer_4;
-}
 
-function loadQuestion2() {
-    document.getElementById('question').innerHTML = question_2;
-    document.getElementById('answer1').innerHTML = question_2_answer_1;
-    document.getElementById('answer2').innerHTML = question_2_answer_2;
-    document.getElementById('answer3').innerHTML = question_2_answer_3;
-    document.getElementById('answer4').innerHTML = question_2_answer_4;
+function loadQuestion() {
+    document.getElementById('question').innerHTML = questions[question_number - 1]['question'];
+    document.getElementById('answer1').innerHTML = questions[question_number - 1]['answer_1'];
+    document.getElementById('answer2').innerHTML = questions[question_number - 1]['answer_2'];
+    document.getElementById('answer3').innerHTML = questions[question_number - 1]['answer_3'];
+    document.getElementById('answer4').innerHTML = questions[question_number - 1]['answer_4'];
+    right_answer = questions[question_number - 1]['right_answer'];
 }
 
 
@@ -63,4 +44,30 @@ function answer(a) {
         document.getElementById('correct-answer').classList.add('d-none');
         document.getElementById('wrong-answer').classList.remove('d-none');
     }
+    if (question_number == questions.length) {
+        showProgress();
+        finishQuiz();
+    }
 }
+
+function finishQuiz() {
+    document.getElementById('quiz-container').classList.add('d-none');
+    document.getElementById('finished-container').classList.remove('d-none');
+    animate();
+}
+
+function animate() {
+    setTimeout(function () {
+        document.getElementById('img-winner').classList.add('enlarged');
+    }, 100);
+    setTimeout(function () {
+        document.getElementById('img-winner').style.boxShadow = '0px 0px 10px lightblue';
+    }, 1000);
+    showRestartButton();
+}
+
+function showRestartButton() {
+    setTimeout(function () {
+        document.getElementById('restart-btn').classList.remove('d-none');
+    }, 2000)
+};
