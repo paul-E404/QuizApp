@@ -1,8 +1,19 @@
-.footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+/* 
+Put the footer on the end of the page
+Source: https://stackoverflow.com/questions/643879/css-to-make-html-page-footer-stay-at-bottom-of-the-page-with-a-minimum-height-b/25218797#25218797 
+*/
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+footer {
+    background-color: grey;
+    display: table-row;
+    height: 0;
 }
 
 .footer-text {
@@ -15,7 +26,7 @@ h1, .progress, .card, .alert {
 }
 
 .quiz-answer-row {
-   width: 80%;
+    width: 80%;
 }
 
 .quiz-answer-row button {
@@ -49,4 +60,97 @@ h1, .progress, .card, .alert {
     position: absolute;
     bottom: 0px;
     right: 40px;
+}
+
+@media(max-width: 1024px) {
+    .quiz-answer-row {
+        display: unset !important;
+    }
+    h1, .progress, .card, .alert {
+        margin-left: 11%;
+    }
+    #next-btn {
+        margin-left: 3%;
+    }
+}
+
+@media(max-width: 991px) {
+    .finished-container {
+        margin-left: 21%;
+    }
+}
+
+@media(max-width: 800px) {}
+
+@media(max-width: 768px) {
+    .finished-container {
+        margin-left: 13%;
+    }
+}
+
+@media(max-width: 600px) {
+    .quiz-answer-row {
+        display: flex !important;
+    }
+    h1, .progress, .card, .alert {
+        margin-left: 10%;
+    }
+    #next-btn {
+        margin-left: unset !important;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+    .img-winner-box {
+        width: 100%;
+    }
+    .enlarged {
+        height: 300px;
+        width: unset !important;
+    }
+    .restart-btn {
+        left: 0;
+        right: 13%;
+    }
+}
+
+@media(max-width: 425px) {
+    .enlarged {
+        height: 250px;
+    }
+    h1, .progress, .card, .alert {
+        margin-left: unset;
+        width: unset;
+    }
+    .quiz-answer-row button {
+        margin: unset;
+    }
+}
+
+@media(max-width: 350px) {
+    body {
+        font-size: 0.9em;
+    }
+    .btn {
+        font-size: 0.9em;
+        max-height: 40px;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+    h2 {
+        font-size: 1.1em;
+    }
+    .enlarged {
+        height: 200px;
+    }
+    .quiz-answer-row {
+        display: unset !important;
+    }
+    .card-body {
+        padding: 0.5rem;
+    }
 }
