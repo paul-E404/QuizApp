@@ -1,3 +1,17 @@
+
+let questions = [];
+
+/**
+ * Loads the questions.json file from the webserver.
+ */
+async function load() {
+    let response = await fetch('http://paul-engerling.developerakademie.com/Modul7/QuizApp/nocors.php?json=questions');
+    questions = await response.json();
+    /* Show first question */
+    nextQuestion();
+}
+
+
 let right_answer;
 let question_number = 0;
 
